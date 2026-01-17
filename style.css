@@ -169,7 +169,7 @@ button:disabled {
 
 .visible-area {
   position: absolute;
-  width: max-content;
+  width: 100%;
   left: 0;
 }
 
@@ -182,7 +182,8 @@ button:disabled {
   grid-template-columns: auto 1fr auto;
   gap: 1rem;
   align-items: center;
-  min-width: 900px;
+  width: max(100%,900px);
+  overflow-x: auto;
 }
 
 .crypto-card:hover {
