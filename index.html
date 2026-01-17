@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Portfolio Tracker - Real-time API Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Crypto Market Tracker</h1>
+        <div class="api-badge">🔴 LIVE • CoinGecko API</div>
+      </header>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="stat-label">Total Coins</div>
+          <div class="stat-value" id="totalCoins">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Visible</div>
+          <div class="stat-value" id="visibleCoins">0</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Avg 24h Change</div>
+          <div
+            class="stat-value"
+            style="color: var(--accent-good)"
+            id="avgChange"
+          >
+            0%
+          </div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Load Time</div>
+          <div class="stat-value" id="loadTime">0ms</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button onclick="loadCoins(50)" id="btn50">Load Top 50</button>
+        <button onclick="loadCoins(100)" id="btn100">Load Top 100</button>
+        <button onclick="loadCoins(250)" id="btn250">Load Top 250</button>
+        <input
+          type="text"
+          class="search-box"
+          placeholder="Search by name or symbol..."
+          id="searchBox"
+          onkeyup="filterCoins()"
+        />
+        <button onclick="refreshData()">🔄 Refresh</button>
+      </div>
+      
+      <div class="viewport" id="viewport">
+        <div class="scroll-content" id="scrollContent">
+          <div class="visible-area" id="visibleArea">
+            <div class="loading">
+              <div class="spinner"></div>
+              <div>Click a button to load cryptocurrency data...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="perf-indicator">
+      <div>
+        Rendered: <span id="renderedCount">0</span> /
+        <span id="totalCount">0</span>
+      </div>
+      <div>Virtual Scrolling: Active</div>
+    </div>
+  </body>
+</html>
